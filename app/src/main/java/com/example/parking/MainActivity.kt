@@ -20,6 +20,11 @@ class MainActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
+        button2.setOnClickListener {
+            val myintent = Intent(this,ParkingActivity::class.java)
+            myintent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(myintent)
+        }
 
     }
 
