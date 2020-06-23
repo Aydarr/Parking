@@ -51,7 +51,7 @@
         android:id="@+id/textView2"
         android:layout_width="255dp"
         android:layout_height="193dp"
-        android:text="Информация об автомобиля"
+        android:text="Информация об автомобиле"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/button3"
         app:layout_constraintHorizontal_bias="0.448"
