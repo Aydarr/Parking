@@ -15,6 +15,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.TimePicker
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_parking.*
 import java.util.*
 
@@ -24,6 +25,12 @@ class ParkingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_parking)
 
+        set_alarm.setOnClickListener {
+
+        }
+        stop_park.setOnClickListener {
+            
+        }
 
     }
 }
