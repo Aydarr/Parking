@@ -4,32 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgbike"
+    android:background="@drawable/park2"
     tools:context=".LoginActivity">
-    <EditText
-        android:id="@+id/emaillog"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:background="@drawable/rounded"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:paddingLeft="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
+
 
     <EditText
         android:id="@+id/passwordlog"
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="4dp"
         android:background="@drawable/rounded"
         android:ems="10"
         android:hint="Password"
@@ -40,27 +24,59 @@
         app:layout_constraintStart_toStartOf="@+id/emaillog"
         app:layout_constraintTop_toBottomOf="@+id/emaillog" />
 
+    <TextView
+
+        android:id="@+id/backToRegistr"
+        android:layout_width="174dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="20dp"
+        android:text="back to registration"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/loginbutton"
+        app:layout_constraintHorizontal_bias="0.583"
+        app:layout_constraintStart_toStartOf="@+id/loginbutton"
+        app:layout_constraintTop_toBottomOf="@+id/loginbutton" />
+
     <Button
         android:id="@+id/loginbutton"
         android:layout_width="0dp"
         android:layout_height="55dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/btn_det"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorAccent"
         android:text="Login"
         app:layout_constraintEnd_toEndOf="@+id/passwordlog"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/passwordlog"
         app:layout_constraintTop_toBottomOf="@+id/passwordlog" />
 
-    <TextView
-        android:id="@+id/backToRegistr"
-        android:layout_width="174dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="24dp"
-        android:text="back to registration"
-        android:textColor="#424040"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/loginbutton"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/loginbutton"
-        app:layout_constraintTop_toBottomOf="@+id/loginbutton" />
+    <EditText
+        android:id="@+id/emaillog"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rounded"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.486" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="256dp"
+        android:layout_height="220dp"
+        app:layout_constraintBottom_toTopOf="@+id/emaillog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pngwave" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
