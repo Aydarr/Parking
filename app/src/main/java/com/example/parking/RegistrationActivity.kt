@@ -42,6 +42,16 @@ class RegistrationActivity : AppCompatActivity() {
     }
     @RequiresApi(Build.VERSION_CODES.O)
     private fun  regaction(){
+
+        /*var patternCarNumber = Regex("^[А-Я|а-я]{1}[0-9]{3}[А-Я|а-я]{2}[17]{0,1}[0-9]{2}$")
+        if(patternCarNumber.containsMatchIn(carId_edittext.toString()))
+        {
+
+        }
+        else{Toast.makeText(this, "Проверьте правильность номера автомобиля", Toast.LENGTH_LONG).show()
+            return}*/
+
+
         val firstNameEditText: EditText = findViewById(R.id.username_edittext)
         val emailEditText: EditText = findViewById(R.id.email_edittext)
         val carIdEditText: EditText = findViewById(R.id.carId_edittext)
@@ -52,6 +62,11 @@ class RegistrationActivity : AppCompatActivity() {
         val ageUserName = carIdEditText.getText().toString()
         val passwordcheck = password_editText.getText().toString()
         val password_again= passwor_again.getText().toString()
+
+
+
+
+
         if(passwordcheck == password_again)
         {
 
@@ -101,7 +116,7 @@ class RegistrationActivity : AppCompatActivity() {
                 val person: Person = Person(
                     firstNameEditText.text.toString(), emailEditText.text.toString(),
                     carIdEditText.text.toString(), calendar)
-                val intent = Intent(this, ParkingActivity::class.java)
+                val intent = Intent(this, MainActivity::class.java)
                 //intent.putExtra("person", person)
                 intent.putExtra("firstName",firstNameEditText.text.toString() )
                 intent.putExtra("carId", carIdEditText.text.toString())
