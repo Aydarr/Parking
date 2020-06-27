@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.drawable.BitmapDrawable
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.text.TextUtils
@@ -14,6 +13,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_registration.*
 import java.time.LocalDate
@@ -51,6 +51,12 @@ class RegistrationActivity : AppCompatActivity() {
         val lastUserName = emailEditText.getText().toString()
         val ageUserName = carIdEditText.getText().toString()
         val passwordcheck = password_editText.getText().toString()
+        val password_again= passwor_again.getText().toString()
+        if(password_again !== passwordcheck){
+            Toast.makeText(this, "Пароль не совпадает", Toast.LENGTH_LONG).show()
+            return
+        }
+
         Log.d("RegistrationActivity", "EmAil is:" + lastUserName )
         Log.d("RegistrationActivity","PAssword is:  $passwordcheck")
         when {
@@ -77,6 +83,7 @@ class RegistrationActivity : AppCompatActivity() {
 
 
             }
+
 
         }
 
@@ -119,5 +126,6 @@ class RegistrationActivity : AppCompatActivity() {
 
         }
     }
+
 
 }

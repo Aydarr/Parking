@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegistrationActivity"
-    android:background="@drawable/bgbike">
+    android:background="@drawable/park">
 
 
     <EditText
@@ -13,25 +13,84 @@
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="288dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
         android:background="@drawable/rounded"
         android:ems="10"
-        android:hint="Username"
+        android:hint="Имя"
         android:inputType="textPersonName"
+        android:maxLength="25"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/carId_edittext"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded"
+        android:ems="10"
+        android:hint="Номер авто"
+        android:inputType="textImeMultiLine"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/email_edittext"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/email_edittext"
+        app:layout_constraintTop_toBottomOf="@+id/email_edittext" />
+
+    <TextView
+        android:id="@+id/registredalready"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Уже зарегистрированы?"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/display_button"
+        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintStart_toStartOf="@+id/display_button"
+        app:layout_constraintTop_toBottomOf="@+id/display_button"
+        app:layout_constraintVertical_bias="0.114" />
+
+    <Button
+        android:id="@+id/display_button"
+        style=""
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/aclonica"
+        android:text="Зарегистрироваться"
+        app:layout_constraintEnd_toEndOf="@+id/password_editText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/password_editText"
+        app:layout_constraintTop_toBottomOf="@+id/passwor_again" />
+
+    <EditText
+        android:id="@+id/password_editText"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded"
+        android:ems="10"
+        android:hint="Пароль"
+        android:inputType="textPassword"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/carId_edittext"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/carId_edittext"
+        app:layout_constraintTop_toBottomOf="@+id/carId_edittext" />
 
     <EditText
         android:id="@+id/email_edittext"
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/rounded"
         android:ems="10"
         android:hint="Email"
@@ -39,62 +98,33 @@
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         app:layout_constraintEnd_toEndOf="@+id/username_edittext"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/username_edittext"
         app:layout_constraintTop_toBottomOf="@+id/username_edittext" />
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="212dp"
+        android:layout_height="248dp"
+        app:layout_constraintBottom_toTopOf="@+id/username_edittext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pngwave" />
+
     <EditText
-        android:id="@+id/carId_edittext"
+        android:id="@+id/passwor_again"
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/rounded"
         android:ems="10"
-        android:hint="Введите номер вашего автомобиля"
-        android:inputType="textImeMultiLine"
+        android:hint="Повторите пароль"
+        android:inputType="textPassword"
         android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/email_edittext"
-        app:layout_constraintStart_toStartOf="@+id/email_edittext"
-        app:layout_constraintTop_toBottomOf="@+id/email_edittext" />
-
-    <Button
-        android:id="@+id/display_button"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/btn_det"
-        android:fontFamily="@font/aclonica"
-        android:text="Register!"
+        android:paddingLeft="20dp"
         app:layout_constraintEnd_toEndOf="@+id/password_editText"
         app:layout_constraintStart_toStartOf="@+id/password_editText"
         app:layout_constraintTop_toBottomOf="@+id/password_editText" />
-
-    <EditText
-        android:id="@+id/password_editText"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/rounded"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/carId_edittext"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/carId_edittext"
-        app:layout_constraintTop_toBottomOf="@+id/carId_edittext" />
-
-    <TextView
-        android:id="@+id/registredalready"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Already have an account?"
-        android:textColor="#424040"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/display_button"
-        app:layout_constraintStart_toStartOf="@+id/display_button"
-        app:layout_constraintTop_toBottomOf="@+id/display_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
