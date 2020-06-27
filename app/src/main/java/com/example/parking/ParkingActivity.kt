@@ -29,7 +29,7 @@ class ParkingActivity : AppCompatActivity() {
 
         }
         stop_park.setOnClickListener {
-            
+
         }
 
     }
