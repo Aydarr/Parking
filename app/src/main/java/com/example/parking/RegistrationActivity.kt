@@ -51,6 +51,12 @@ class RegistrationActivity : AppCompatActivity() {
         val lastUserName = emailEditText.getText().toString()
         val ageUserName = carIdEditText.getText().toString()
         val passwordcheck = password_editText.getText().toString()
+        val password_again= passwor_again.getText().toString()
+        if(passwordcheck !==password_again)
+        {
+            Toast.makeText(this, "Пароли не совпадают", Toast.LENGTH_LONG).show()
+            return
+        }
         Log.d("RegistrationActivity", "EmAil is:" + lastUserName )
         Log.d("RegistrationActivity","PAssword is:  $passwordcheck")
         when {
