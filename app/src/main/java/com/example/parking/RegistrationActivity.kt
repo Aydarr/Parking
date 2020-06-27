@@ -90,9 +90,10 @@ class RegistrationActivity : AppCompatActivity() {
                 val person: Person = Person(
                     firstNameEditText.text.toString(), emailEditText.text.toString(),
                     carIdEditText.text.toString(), calendar)
-                val intent = Intent(this, MainActivity::class.java)
-                intent.putExtra("person", person)
-                intent.putExtra("somekey", 10)
+                val intent = Intent(this, ParkingActivity::class.java)
+                //intent.putExtra("person", person)
+                intent.putExtra("firstName",firstNameEditText.text.toString() )
+                intent.putExtra("carId", carIdEditText.text.toString())
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
             }
