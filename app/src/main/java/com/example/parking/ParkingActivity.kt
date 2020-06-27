@@ -41,7 +41,7 @@ class ParkingActivity : AppCompatActivity() {
                 val db= FirebaseFirestore.getInstance()
                 val parkedCar = hashMapOf(
                     "name" to firstName,
-                    "time" to mytime.hour.toString()
+                    "time" to mytime.hour.toString()+":"+mytime.minute.toString()
                 )
 
                 db.collection("parking").document(carId)
@@ -50,10 +50,29 @@ class ParkingActivity : AppCompatActivity() {
                     .addOnFailureListener { e -> Log.w("Fail", "Error writing document", e)
                         Toast.makeText(this,"Не удалось записать", Toast.LENGTH_LONG).show()
                     }
+                textView3.text=mytime.hour.toString()+":"+mytime.minute.toString();
             }
         }
         stop_park.setOnClickListener {
+            var firstName:String
+            var carId:String
+            val extras = getIntent().extras
+            if (extras != null) {
+                firstName = extras.getString("firstName").toString()
+                carId = extras.getString("carId").toString()
+                val db= FirebaseFirestore.getInstance()
+                val parkedCar = hashMapOf(
+                    "name" to firstName,
+                    "time" to mytime.hour.toString()+":"+mytime.minute.toString()
+                )
 
+                db.collection("parking").document(carId)
+                    .delete()
+                    .addOnSuccessListener { Log.d("", "DocumentSnapshot successfully deleted!") }
+                    .addOnFailureListener { e -> Log.w("", "Error deleting document", e) }
+
+                textView3.text="";
+            }
         }
 
     }
