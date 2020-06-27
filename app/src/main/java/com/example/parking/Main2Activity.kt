@@ -14,14 +14,14 @@ class Main2Activity : AppCompatActivity() {
         setContentView(R.layout.activity_main2)
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.to_back, menu)
+        menuInflater.inflate(R.menu.toback, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
 
-            R.id.menu_to_back -> {
+            R.id.toback -> {
                 FirebaseAuth.getInstance().signOut()
                 val intent = Intent(this, MainActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
