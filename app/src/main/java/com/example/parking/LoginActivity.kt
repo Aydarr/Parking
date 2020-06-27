@@ -16,6 +16,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+
         val backToRegistration: TextView = findViewById(R.id.backToRegistr)
         backToRegistration.setOnClickListener {
             finish()
