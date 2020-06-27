@@ -11,13 +11,16 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CancellationSignal
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.TimePicker
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_parking.*
 import java.util.*
@@ -29,7 +32,25 @@ class ParkingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_parking)
 
         set_alarm.setOnClickListener {
+            var firstName:String
+            var carId:String
+            val extras = getIntent().extras
+            if (extras != null) {
+                firstName = extras.getString("firstName").toString()
+                carId = extras.getString("carId").toString()
+                val db= FirebaseFirestore.getInstance()
+                val parkedCar = hashMapOf(
+                    "name" to firstName,
+                    "time" to mytime.hour.toString()
+                )
 
+                db.collection("parking").document(carId)
+                    .set(parkedCar as Map<String, Any>)
+                    .addOnSuccessListener { Log.d("Success", "DocumentSnapshot successfully written!") }
+                    .addOnFailureListener { e -> Log.w("Fail", "Error writing document", e)
+                        Toast.makeText(this,"Не удалось записать", Toast.LENGTH_LONG).show()
+                    }
+            }
         }
         stop_park.setOnClickListener {
 
