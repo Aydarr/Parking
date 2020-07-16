@@ -31,47 +31,61 @@ class ParkingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_parking)
 
-        set_alarm.setOnClickListener {
-            var firstName:String
-            var carId:String
+        set_alarm.setOnClickListener {  //нажатие кнопки "Применить"
+            //var firstName:String
+            //var carId:String
             val extras = getIntent().extras
             if (extras != null) {
-                firstName = extras.getString("firstName").toString()
-                carId = extras.getString("carId").toString()
+                var firstName = extras.getString("firstName").toString()
+                var carId = extras.getString("carId").toString()
                 val db= FirebaseFirestore.getInstance()
                 val parkedCar = hashMapOf(
                     "name" to firstName,
                     "time" to mytime.hour.toString()+":"+mytime.minute.toString()
                 )
-
-                db.collection("parking").document(carId)
-                    .set(parkedCar as Map<String, Any>)
+                db.collection("parking").document(carId.toString())
+                    .set(
+                        mapOf(
+                            "name" to firstName.toString(),
+                            "time" to mytime.hour.toString()+":"+mytime.minute.toString()
+                        )
+                    )
                     .addOnSuccessListener { Log.d("Success", "DocumentSnapshot successfully written!") }
                     .addOnFailureListener { e -> Log.w("Fail", "Error writing document", e)
-                        Toast.makeText(this,"Не удалось записать", Toast.LENGTH_LONG).show()
+                        //Toast.makeText(this,"", Toast.LENGTH_LONG).show()
                     }
-                textView3.text=mytime.hour.toString()+":"+mytime.minute.toString();
+                textView3.text="Припаркован до "+mytime.hour.toString()+":"+mytime.minute.toString();
+                val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("time",textView3.text.toString())
+                intent.putExtra("FIO", firstName)
+            }
+            else{
+                textView3.text="Fail";
             }
         }
         stop_park.setOnClickListener {
-            var firstName:String
-            var carId:String
             val extras = getIntent().extras
             if (extras != null) {
-                firstName = extras.getString("firstName").toString()
-                carId = extras.getString("carId").toString()
+                var firstName = extras.getString("firstName").toString()
+                var carId = extras.getString("carId").toString()
                 val db= FirebaseFirestore.getInstance()
                 val parkedCar = hashMapOf(
                     "name" to firstName,
                     "time" to mytime.hour.toString()+":"+mytime.minute.toString()
                 )
 
-                db.collection("parking").document(carId)
+                db.collection("parking").document("123Test")
                     .delete()
                     .addOnSuccessListener { Log.d("", "DocumentSnapshot successfully deleted!") }
-                    .addOnFailureListener { e -> Log.w("", "Error deleting document", e) }
+                    .addOnFailureListener { e -> Log.w("", "Error deleting document", e)
+                        //Toast.makeText(this,"", Toast.LENGTH_LONG).show()
+                    }
 
-                textView3.text="";
+                textView3.text="Прекращена";
+            }
+            else
+            {
+                textView3.text="False"
             }
         }
 

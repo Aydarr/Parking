@@ -6,16 +6,17 @@
     android:layout_height="match_parent"
     android:background="@drawable/bgbike"
     tools:context=".ParkingActivity">
+
     <TextView
 
         android:id="@+id/update_text"
         android:layout_width="398dp"
         android:layout_height="61dp"
         android:padding="5dp"
-        android:text="Паркуюсь до:"
+        android:text="Статус парковки:"
+        android:textColor="#212121"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:textColor="#212121"
         app:layout_constraintBottom_toTopOf="@+id/mytime"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
