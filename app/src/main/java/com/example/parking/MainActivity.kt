@@ -17,13 +17,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         verifyUserIsLoggedIn()
-
-
-
+        val extras = getIntent().extras
         button.setOnClickListener {
-            val intent = Intent(this,ParkingActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(intent)
+            if(extras!=null)
+            {
+                var firstName = extras.getString("firstName").toString()
+                var carId = extras.getString("carId").toString()
+                var time = extras.getString("time").toString()
+                val intent = Intent(this,ParkingActivity::class.java)
+                intent.putExtra("firstName",firstName)
+                intent.putExtra("carId", carId)
+                val intent2 = Intent(this,Main2Activity::class.java)
+                intent.putExtra("FIO",firstName)
+                intent.putExtra("time", time)
+                //intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+            }
 
         }
         button2.setOnClickListener {
@@ -31,7 +40,6 @@ class MainActivity : AppCompatActivity() {
             myintent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(myintent)
         }
-
     }
 
 
